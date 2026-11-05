@@ -1,42 +1,47 @@
-# Engineering Standards — Mandatory Instructions
+# Instruções globais de engenharia
 
-Sempre trabalhe seguindo as skills disponíveis no repositório do projeto. Antes de implementar qualquer funcionalidade, identifique e consulte as skills relevantes. Elas são a referência principal para padrões técnicos, arquitetura, qualidade e boas práticas.
+Estas instruções se aplicam a todo trabalho neste repositório. Consulte as skills especializadas indicadas abaixo quando a tarefa envolver seu domínio. Leia apenas as skills necessárias; uma tarefa que atravesse várias áreas pode exigir mais de uma.
 
-## 1. General Engineering Principles
+## Seleção das skills
 
-- Priorize qualidade, segurança, manutenibilidade, escalabilidade e performance.
-- Antes de criar qualquer componente, função, serviço ou utilitário, inspecione o projeto e procure implementações reutilizáveis.
-- Prefira estender ou reutilizar soluções existentes em vez de duplicar código.
-- Evite abstrações desnecessárias e código improvisado.
-- Mantenha responsabilidades separadas, respeitando a arquitetura existente.
-- Não introduza mudanças arquiteturais significativas sem apresentar a proposta e discutir seus impactos antes.
-- Não modifique funcionalidades não relacionadas à tarefa sem necessidade.
-- Não considere uma implementação concluída apenas porque funciona no cenário principal.
+| Tipo de tarefa | Skill |
+|---|---|
+| APIs, serviços, validação e regras de negócio no servidor | [`backend`](skills/backend/SKILL.md) |
+| Revisão técnica de código existente ou recém-alterado | [`code-review`](skills/code-review/SKILL.md) |
+| SQL, schema, migrations, índices e integridade de dados | [`database`](skills/database/SKILL.md) |
+| Git, commits, pull requests, CI/CD e releases | [`development-workflow`](skills/development-workflow/SKILL.md) |
+| React, TypeScript, componentes, estado e integração com APIs | [`frontend-engineering`](skills/frontend-engineering/SKILL.md) |
+| UX, interface visual, responsividade e acessibilidade de interação | [`ui-ux-responsive`](skills/ui-ux-responsive/SKILL.md) |
+| Ameaças, vulnerabilidades, autenticação e proteção de dados | [`security`](skills/security/SKILL.md) |
+| Testes e evidências de comportamento | [`testing`](skills/testing/SKILL.md) |
 
-## 2. Language and Naming Conventions
+Exemplo: um endpoint que persiste dados financeiros pode exigir `backend`, `database`, `security` e `testing`. Uma mudança visual em um formulário pode exigir `frontend-engineering`, `ui-ux-responsive` e `testing`.
 
-- Todo identificador interno deve utilizar inglês: funções, variáveis, constantes, classes, interfaces, tipos, rotas de API, services, repositories e schemas.
-- Todos os comentários escritos no código devem obrigatoriamente estar em inglês.
-- Textos apresentados ao usuário devem estar em português brasileiro.
-- URLs públicas e slugs apresentados ao usuário devem seguir o idioma português quando fizerem parte da experiência do produto.
-- Mantenha consistência nas convenções de nomenclatura.
+## Regras obrigatórias em qualquer projeto
 
-## 3. Frontend Standards
+- Inspecione a estrutura, as convenções, o estado do Git e os arquivos relevantes antes de implementar.
+- Procure componentes, funções, serviços, validações e dependências já existentes antes de criar outros.
+- Reutilize o que for adequado, sem introduzir abstrações genéricas ou duplicar regras de negócio.
+- Respeite a arquitetura e os contratos públicos existentes. Proponha e justifique mudanças arquiteturais amplas antes de executá-las.
+- Use inglês em identificadores internos e comentários de código. Use português brasileiro em textos apresentados às pessoas usuárias.
+- No frontend, prefira tokens e padrões visuais já existentes; não distribua valores de design hardcoded.
+- Valide no servidor toda entrada externa e verifique autenticação, autorização e propriedade do recurso em cada operação protegida.
+- Considere segurança, privacidade, integridade dos dados, acessibilidade e desempenho conforme o risco e o contexto.
+- Preserve alterações preexistentes e não modifique arquivos sem relação com a tarefa.
+- Não instale dependências nem ferramentas quando a infraestrutura existente for suficiente. Justifique tecnicamente qualquer adição.
+- Consulte documentação oficial quando o comportamento de uma ferramenta, API, padrão ou versão não estiver claro.
 
-- Inspecione componentes, hooks, funções, utilitários e bibliotecas existentes antes de criar novos.
-- Reutilize o Design System e os componentes compartilhados.
-- Evite hardcode de cores, espaçamentos, tipografia, bordas, sombras e breakpoints.
-- Utilize tokens, variáveis CSS e temas existentes.
-- Utilize HTML semântico e práticas de acessibilidade.
-- Desenvolva interfaces considerando celulares, tablets, notebooks e monitores grandes.
-- Não trate responsividade como simples redução de tamanho: adapte a estrutura e o comportamento do layout.
-- Considere estados de loading, error, empty, success e disabled.
+## Implementação e validação
 
-## 4. Backend Standards
+1. Identifique as áreas afetadas e consulte as skills correspondentes.
+2. Defina o comportamento esperado e os riscos antes de alterar o código.
+3. Implemente a menor mudança coesa que atenda ao objetivo, mantendo compatibilidade quando aplicável.
+4. Execute as validações relevantes disponíveis no projeto. Não execute operações destrutivas nem use serviços de produção para testes.
+5. Revise o diff e confirme que as mudanças não relacionadas foram preservadas.
+6. No relato final, descreva o que mudou, os comandos realmente executados, seus resultados e limitações pendentes.
 
-- O backend é responsável por validar todas as entradas externas. Nunca confie na validação do frontend.
-- Implemente validação estrutural e de regras de negócio no servidor.
-- Sempre verifique autenticação, autorização e propriedade dos recursos.
-- Evite duplicação de regras de negócio.
-- Separe controllers, services, repositories e middlewares conforme a arquitetura existente.
-- Prote
+Não afirme que testes, revisões, verificações ou operações externas foram concluídos sem executar a ação correspondente. Se uma validação não puder ser executada, informe o motivo com clareza.
+
+## Escopo destas instruções
+
+Este arquivo reúne somente regras globais e o mapa das especialidades. Detalhes de cada domínio pertencem à respectiva `SKILL.md`; em caso de dúvida, consulte a skill especializada e a documentação oficial pertinente. Políticas específicas do projeto em que o agente estiver trabalhando têm precedência quando forem compatíveis com requisitos de segurança e instruções explícitas da tarefa.
