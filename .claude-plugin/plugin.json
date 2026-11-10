@@ -1,0 +1,12 @@
+{
+  "name": "my-engineer-skills",
+  "version": "1.0.0",
+  "description": "Skills de engenharia de software: backend, frontend, banco de dados, segurança, testes, UI/UX, code review e fluxo de desenvolvimento.",
+  "author": {
+    "name": "TheJhou",
+    "url": "https://github.com/TheJhou"
+  },
+  "homepage": "https://github.com/TheJhou/my-enginner-skilss-personalized",
+  "repository": "https://github.com/TheJhou/my-enginner-skilss-personalized",
+  "keywords": ["engineering", "backend", "frontend", "database", "security", "testing", "code-review", "ui-ux"]
+}

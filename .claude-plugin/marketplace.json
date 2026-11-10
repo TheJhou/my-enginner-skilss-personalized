@@ -1,0 +1,20 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "thejhou-skills",
+  "owner": {
+    "name": "TheJhou",
+    "url": "https://github.com/TheJhou"
+  },
+  "metadata": {
+    "description": "Marketplace pessoal com skills de engenharia de software."
+  },
+  "plugins": [
+    {
+      "name": "my-engineer-skills",
+      "source": "./",
+      "description": "Skills de engenharia de software: backend, frontend, banco de dados, segurança, testes, UI/UX, code review e fluxo de desenvolvimento.",
+      "version": "1.0.0",
+      "category": "development"
+    }
+  ]
+}

@@ -25,6 +25,9 @@ O público-alvo são pessoas desenvolvedoras e equipes que configuram agentes de
 
 ```text
 my-enginner-skilss-personalized/
+├── .claude-plugin/
+│   ├── plugin.json
+│   └── marketplace.json
 ├── README.md
 ├── memoryAgente.md
 ├── skills/
@@ -69,6 +72,21 @@ A compatibilidade e a descoberta variam entre ferramentas. Consulte a documenta�
 `memoryAgente.md` é uma convenção global deste repositório, fora do formato obrigatório de uma skill. Configure o agente para ler esse arquivo separadamente, se o ambiente oferecer instruções globais ou contexto de projeto. A disponibilidade desse arquivo não significa que toda ferramenta o carregará automaticamente.
 
 Para reduzir contexto desnecessário, disponibilize primeiro as regras globais e carregue somente as skills relacionadas à tarefa. Se a ferramenta não fizer seleção automática, indique os diretórios relevantes manualmente. Ao atualizar uma skill, confira também suas referências cruzadas e a seleção em `memoryAgente.md`.
+
+## Instalação como plugin do Claude
+
+O diretório `.claude-plugin/` transforma o repositório em um plugin (`plugin.json`) e em um marketplace de um único plugin (`marketplace.json`). As skills em `skills/` são descobertas automaticamente.
+
+No Claude Code:
+
+```text
+/plugin marketplace add TheJhou/my-enginner-skilss-personalized
+/plugin install my-engineer-skills@thejhou-skills
+```
+
+No app do Claude, adicione o marketplace pelo endereço do repositório no GitHub ou envie um `.zip` do repositório que contenha a pasta `.claude-plugin/` na raiz.
+
+Ao lançar uma nova versão, atualize `version` em `plugin.json` e `marketplace.json` juntos.
 
 ## Validação local e CI
 
